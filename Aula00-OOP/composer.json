@@ -1,0 +1,8 @@
+{
+  "name": "cgachido/aula-00",
+  "autoload": {
+    "psr-4": {
+      "Mylog\\": "src/"
+    }
+  }
+}
