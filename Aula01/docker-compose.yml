@@ -1,0 +1,13 @@
+services:
+  php:
+    image: "php:8.3-alpine"
+    volumes:
+      - ".:/projeto"
+      - "./projeto/php.ini:/usr/local/etc/php/php.ini"
+    ports:
+      - "8011:80"
+    tty: true
+    command: "php -S 0.0.0.0:80 -t /projeto"
+    environment:
+      COMPANY_NAME: "NEXT-GEN PHP"
+      SERVICES: "CURSOS|MENTORIAS|TREINAMENTOS"
