@@ -1,0 +1,27 @@
+services:
+  nginx:   
+    image: nginx:1.17-alpine
+    ports:
+      - "80:80"
+      - "9001:9001"
+    volumes:
+      - .:/app
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+
+  phpfpm:
+    build: 
+      context: ./docker
+      dockerfile: dev.DockerFile
+    #image: cgachido/php-fpm-next-gen:1.0.0
+    volumes:
+      - .:/app
+      - ./php.ini:/usr/local/etc/php/php.ini
+
+  pgsql:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: mydb
+    ports:
+      - 5432:5432
