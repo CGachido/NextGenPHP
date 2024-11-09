@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# liberar permissão pra o script - chmod +x ./shell/exec
+docker compose exec -u application:application php php "$@"
