@@ -1,0 +1,4 @@
+vendor
+html
+.phpunit.cache
+.phpunit.result.cache
