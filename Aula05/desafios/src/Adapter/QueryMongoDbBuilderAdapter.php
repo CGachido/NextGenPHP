@@ -4,7 +4,6 @@ namespace DifferDev\Adapter;
 
 use DifferDev\QueryBuilder\QueryMongoDbBuilder;
 use DifferDev\QueryBuilder\QueryBuilder;
-use DifferDev\Interfaces\QueryBuilderAdapter;
 
 class QueryMongoDbBuilderAdapter extends QueryBuilder
 {
