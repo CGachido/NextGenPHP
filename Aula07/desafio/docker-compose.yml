@@ -6,6 +6,7 @@ services:
             - .env.docker
         volumes:
             - ".:/app"
+            - ./php.ini:/usr/local/etc/php/php.ini
         ports:
             - "${SERVER_DEFAULT_PORT}:80"
     mariadb:

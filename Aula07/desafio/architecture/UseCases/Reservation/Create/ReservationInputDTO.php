@@ -1,15 +1,14 @@
 <?php
 
-namespace Architecture\UseCases\Reservation;
+namespace Architecture\UseCases\Reservation\Create;
 
-use Architecture\Domain\ValueObjects\StoredBookId;
-use Architecture\Domain\ValueObjects\UserId;
+use Architecture\Domain\ValueObjects\Id;
 
 class ReservationInputDTO
 {
     public function __construct(
-        public UserId $userId,
-        public StoredBookId $storedBookId
+        public Id $userId,
+        public Id $storedBookId
     ) {}
 
     public function toArray(): array

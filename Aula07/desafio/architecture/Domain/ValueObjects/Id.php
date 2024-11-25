@@ -2,7 +2,7 @@
 
 namespace Architecture\Domain\ValueObjects;
 
-class StoredBookId
+class Id
 {
     public function __construct(protected int $value)
     {
@@ -12,7 +12,7 @@ class StoredBookId
     private function isValidId(int $value): bool
     {
         if ($value < 1) {
-            throw new \InvalidArgumentException('Invalid Stored Book Id number');
+            throw new \Exception('Invalid Id number');
         }
         return true;
     }

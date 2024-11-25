@@ -17,8 +17,15 @@ class JsonResponsePresenter implements ResponsePresenterInterface
     public function error(string $message, int $statusCode): JsonResponse
     {
         return response()->json([
-            'status' => 'error',
-            'message' => $message,
+            'error' => $message,
         ], $statusCode);
+    }
+
+    public function internalError(): JsonResponse
+    {
+        return response()->json(
+            "Internal error. Please, contact the support.",
+            JsonResponse::HTTP_INTERNAL_SERVER_ERROR
+        );
     }
 }

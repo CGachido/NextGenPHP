@@ -1,6 +1,6 @@
 <?php
 
-namespace Architecture\UseCases\Reservation;
+namespace Architecture\UseCases\Reservation\Create;
 
 use Architecture\Domain\Entities\Reservation;
 use Architecture\Infraestructure\ReservationRepositoryInterface;
@@ -27,13 +27,16 @@ class CreateReservationUseCase
         if (null === $storedBook) {
             throw new \Exception("Stored Book Not Found!", 404);
         }
-
-        $reservationData = Reservation::create(
+        $reservationData = new Reservation(
             user: $user,
             storedBook: $storedBook,
             reservedAt: new DateTimeImmutable()
         );
 
-        return $this->reservationRepository->save($reservationData);
+        $reservation =  $this->reservationRepository->save($reservationData);
+        if (null === $reservation) {
+            throw new \Exception("Reservation could not be returned!", 500);
+        }
+        return $reservation;
     }
 }
